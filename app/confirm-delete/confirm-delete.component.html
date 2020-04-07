@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Confirm delete</h2>
+
+<mat-dialog-content id="modal">
+
+  <mat-list dense>
+
+    <mat-list-item><strong>Tester No:  </strong> <p> {{reportToDelete.testerNo}}</p></mat-list-item>
+    <mat-list-item><strong>Report No: </strong> <p>{{reportToDelete.reportNo}}</p></mat-list-item>
+    <mat-list-item><strong>Farm ID:  </strong>  <p>{{reportToDelete.farmID}}</p></mat-list-item>
+    <mat-list-item><strong>Sticker No: </strong><p>{{reportToDelete.stickerNo}}</p></mat-list-item>
+    <mat-list-item><strong>County:  </strong>  <p>{{reportToDelete.county}}</p></mat-list-item>
+    <mat-list-item><strong>Test date: </strong><p>{{reportToDelete.testDate}}</p></mat-list-item>
+    <mat-list-item><strong>Rating: </strong><p>{{reportToDelete.rating}}</p></mat-list-item>
+    <mat-list-item *ngIf="data.note.note"><strong>Note: </strong><p>{{reportToDelete.note}}</p></mat-list-item>
+
+  </mat-list>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+  <button id="deleteModalbutton" mat-button mat-dialog-close>Cancel</button>
+  <button id="deleteModalbutton" mat-button (click)="deleteReport()" >Delete</button>
+
+</mat-dialog-actions>

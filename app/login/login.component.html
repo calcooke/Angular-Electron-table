@@ -1,0 +1,35 @@
+
+<div class="login-card">
+  <mat-card>
+    <mat-card-title>Log in</mat-card-title>
+
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your password" [formControl]="password" [type]="hide ? 'password' : 'text'"
+        required>
+        
+    </mat-form-field>
+
+    <mat-error class="error">{{errorMessage}}</mat-error>
+
+    <mat-card-actions>
+
+      <button *ngIf="email.valid" mat-raised-button (click)="tryLogin()">
+        Login
+      </button>
+
+      <button *ngIf="email.invalid" mat-button disabled>
+          Login
+        </button>
+
+        <a  mat-raised-button routerLink="/register">Register</a>
+
+    </mat-card-actions>
+
+  </mat-card>
+</div>

@@ -1,0 +1,35 @@
+/* .users-list {
+    padding: 40px 60px;
+  
+
+    
+
+  
+  }
+  .text-col {
+    margin: auto 0px;
+  }
+   */
+
+  /* .search-div{
+    background-color: aqua;
+  } */
+
+  .admin-button{
+
+    margin-left: 1%;
+    /* margin-left: 3px; */
+    width:10%;
+
+  }
+  .admin-panel{
+    display: inline;
+    /* background-color: red; */
+  }
+
+  .mat-form-field{
+
+    width:75%;
+
+
+  }

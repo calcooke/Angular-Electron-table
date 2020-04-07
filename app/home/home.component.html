@@ -1,0 +1,98 @@
+<div class="search-div">
+
+  <mat-form-field class="searchField" floatLabel="never">
+    <input matInput [(ngModel)]="searchKey" placeholder="Search..." autocomplete="off" (keyup)="applyFilter()">
+    <button mat-button *ngIf="searchKey" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()"
+      class="clearButton">X</button>
+  </mat-form-field>
+
+  <div class="admin-panel">
+
+  <button class="admin-button" mat-raised-button (click)="logout()">
+    Log out
+  </button>
+
+  <button class="admin-button" mat-raised-button (click)="addAdmin()">
+    Add admin
+  </button>
+
+</div>
+
+</div>
+
+
+
+
+<div class="mat-elevation-z8 data-table">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+
+    <ng-container matColumnDef="testerNo">
+      <th mat-header-cell *matHeaderCellDef>Tester number</th>
+      <td mat-cell *matCellDef="let row">{{row.testerNo}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="reportNo">
+      <th mat-header-cell *matHeaderCellDef>Report number</th>
+      <td mat-cell *matCellDef="let row">{{row.reportNo}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="farmID">
+      <th mat-header-cell *matHeaderCellDef>Farm ID</th>
+      <td mat-cell *matCellDef="let row">{{row.farmID}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="stickerNo">
+      <th mat-header-cell *matHeaderCellDef>Sticker number</th>
+      <td mat-cell *matCellDef="let row">{{row.stickerNo}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="county">
+      <th mat-header-cell *matHeaderCellDef>County</th>
+      <td mat-cell *matCellDef="let row">{{row.county}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="testDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Test date</th>
+      <td mat-cell *matCellDef="let row">{{row.testDate}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateAdded">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date uploaded</th>
+      <td mat-cell *matCellDef="let row">{{row.dateAdded}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="rating">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Rating</th>
+      <td mat-cell *matCellDef="let row">{{row.rating}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="note">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Note</th>
+      <td mat-cell *matCellDef="let row"><button mat-raised-button *ngIf="row.note" (click)="openNote(row.note)">View
+          note</button></td>
+    </ng-container>
+
+    <ng-container matColumnDef="deleteButton">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Delete</th>
+      <td mat-cell *matCellDef="let row"><button mat-raised-button (click)="deleteReport(row)">Delete</button></td>
+    </ng-container>
+
+    <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef>Loading data...</mat-footer-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef>No Data.</mat-footer-cell>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+    <!-- <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':dataSource!=null && dataSource.reports.length==0}"></mat-footer-row> -->
+  </table>
+
+  <mat-paginator #paginator [length]="dataSource?.reports.length" [pageIndex]="0" [pageSize]="10"
+    [pageSizeOptions]="[10, 100, 250]" showFirstLastButtons>
+  </mat-paginator>
+</div>

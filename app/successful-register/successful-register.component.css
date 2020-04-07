@@ -1,0 +1,17 @@
+.registered-card {
+    /* display: flex;
+    flex-direction: column; */
+    padding: 20px;
+
+  }
+
+  
+  .mat-form-field{
+      display: block;
+  }
+
+  .registered-card > * {
+    width: 40%;
+    margin: auto;
+
+  }

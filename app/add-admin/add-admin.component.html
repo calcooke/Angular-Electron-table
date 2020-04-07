@@ -1,0 +1,37 @@
+<div class="addAdminModal">
+
+  <div *ngIf="!adminSet">
+    <h1 mat-dialog-title>Add admin</h1>
+    <div mat-dialog-content>
+      <p>Enter email of user to be set as admin</p>
+      <mat-form-field>
+        <input matInput placeholder="Enter email" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      
+      <button *ngIf="email.valid" mat-raised-button (click)="setAdmin()">
+        Set as admin
+      </button>
+  
+      <button *ngIf="email.invalid" mat-button disabled>
+        Set as admin
+        </button>
+    </div>
+  </div>
+  
+  <div *ngIf="adminSet">
+      <h1 mat-dialog-title>Admin set</h1>
+      <div mat-dialog-content>
+        
+        <p>User assigned as admin</p>
+        
+        
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="true">Done</button>
+      </div>
+    </div>
+  
+  </div>

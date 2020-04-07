@@ -1,0 +1,35 @@
+<div class="register-card">
+  <mat-card>
+      <mat-card-title>Register</mat-card-title>
+
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your password" [formControl]="password" [type]="hide ? 'password' : 'text'"
+        required>
+        <mat-error *ngIf="password.invalid && !successMessage">Password should be at least 6 characters</mat-error>
+    </mat-form-field>
+
+    <mat-error class="error">{{errorMessage}}</mat-error>
+    <label class="success">{{successMessage}}</label>
+
+    <mat-card-actions>
+
+        <a mat-raised-button color="warn" routerLink="/">Cancel</a>
+
+        <button *ngIf="email.valid" mat-raised-button (click)="tryRegister()">
+            Register
+        </button>
+
+      <button *ngIf="email.invalid" mat-button disabled>
+          Register
+      </button>
+
+    </mat-card-actions>
+
+  </mat-card>
+</div>
